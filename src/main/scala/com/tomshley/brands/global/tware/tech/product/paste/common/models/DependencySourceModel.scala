@@ -6,7 +6,7 @@ import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.Model
 
 case class DependencySourceModel(
                                   dependency: Dependency,
-                                  pathValue:String,
+                                  pathValue: String,
                                   contents: String,
                                   checksum: String,
                                   byteSize: String,

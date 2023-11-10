@@ -7,12 +7,11 @@ import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.TimeUti
 import java.io.File
 
 trait Dependency {
-  val name: String
-  val version: Float
-
   lazy val lastModifiedTimestamp: TimeUtils.DateTime
   lazy val priorLastModifiedTimestamp: TimeUtils.DateTime
   lazy val hasVersionMismatch: Boolean
+  val name: String
+  val version: Float
 }
 
 case class DependencyModel(

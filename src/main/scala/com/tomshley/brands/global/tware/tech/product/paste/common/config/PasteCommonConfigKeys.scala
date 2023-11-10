@@ -14,5 +14,6 @@ protected[paste] enum PasteCommonConfigKeys(configBlockKey: PasteCommonConfigBlo
   case HTTP_LFU_CACHE_NAME extends PasteCommonConfigKeys(PasteCommonConfigBlockKey(PasteCommonConfigBlocks.PASTE, "httpLFUCacheName", Some("paste-http-cache")))
   case HTTP_LFU_CACHE_INITIAL_SIZE extends PasteCommonConfigKeys(PasteCommonConfigBlockKey(PasteCommonConfigBlocks.PASTE, "httpLFUCacheInitialSize", Some(0)))
   case HTTP_LFU_CACHE_MAX_CAPACITY extends PasteCommonConfigKeys(PasteCommonConfigBlockKey(PasteCommonConfigBlocks.PASTE, "httpLFUCacheMaxCapacity", Some(1024)))
+
   def toValue: String = configBlockKey.toString
 }
