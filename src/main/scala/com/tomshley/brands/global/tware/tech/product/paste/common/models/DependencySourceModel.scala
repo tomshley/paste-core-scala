@@ -1,7 +1,7 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 import com.google.protobuf.compiler.plugin.CodeGeneratorResponse.File
-import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.Model
+import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{IncomingModel, Model}
 
 
 case class DependencySourceModel(
@@ -12,4 +12,4 @@ case class DependencySourceModel(
                                   byteSize: String,
                                   priorVersions: Seq[Float],
                                   versionOption: Option[Float] = None
-                                ) extends Model
+                                ) extends IncomingModel
