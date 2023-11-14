@@ -23,19 +23,8 @@ case class PastePart(
 }
 
 object PastePart extends FilesUtil:
-  private def typeMatch(filePath:String): SupportedPasteAssetTypes = SupportedPasteAssetTypes.values.filter { supportedType =>
-    lazy val nameWithExtension = nameAndExtensionPair(filePath)
-
-    Seq(".", supportedType.toFileExtension).mkString("") == nameWithExtension(1)
-  }.head
   def apply(sourcePath: Path): PastePart = {
     apply(sourcePath, Seq())
-  }
-  def apply(name: String, pasteAssetType: SupportedPasteAssetTypes): PastePart = {
-    new PastePart(
-      name,
-      pasteAssetType = pasteAssetType
-    )
   }
 
   def apply(sourcePath: Path, requires: Seq[PastePart]): PastePart = {
@@ -44,5 +33,18 @@ object PastePart extends FilesUtil:
     new PastePart(
       nameWithExtension(0),
       typeMatch(sourcePath.getFileName.toString)
+    )
+  }
+
+  private def typeMatch(filePath: String): SupportedPasteAssetTypes = SupportedPasteAssetTypes.values.filter { supportedType =>
+    lazy val nameWithExtension = nameAndExtensionPair(filePath)
+
+    Seq(".", supportedType.toFileExtension).mkString("") == nameWithExtension(1)
+  }.head
+
+  def apply(name: String, pasteAssetType: SupportedPasteAssetTypes): PastePart = {
+    new PastePart(
+      name,
+      pasteAssetType = pasteAssetType
     )
   }
