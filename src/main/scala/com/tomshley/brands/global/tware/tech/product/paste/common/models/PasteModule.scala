@@ -11,7 +11,7 @@ case class PasteModule(
                         requiresParts: Seq[PastePart],
                         optimizedFileOption: Option[File] = None,
                         parentBuildDirOption: Option[File] = None
-                      ) extends Model {
+                      ) extends PasteSerializableModel {
 
   lazy val expectedOptimizedFile: File = {
     optimizedFileOption.fold(

@@ -1,6 +1,5 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
-import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.Model
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.FilesUtil
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
 
@@ -11,7 +10,7 @@ case class PastePart(
                       name: String,
                       pasteAssetType: SupportedPasteAssetTypes,
                       versionOption: Option[Float] = None,
-                    ) extends Model {
+                    ) extends PasteSerializableModel {
 
   lazy val version: Float = versionOption.fold(
     ifEmpty = PasteCommonConfigKeys.DEFAULT_VERSION.toValue.toFloat
