@@ -8,7 +8,7 @@ import java.nio.file.Path
 
 case class PastePart(
                       name: String,
-                      pasteAssetType: SupportedPasteAssetTypes,
+                      pasteAssetType: SupportedPasteAssetType,
                       versionOption: Option[Float] = None,
                     ) extends PasteSerializableModel {
 
@@ -35,13 +35,13 @@ object PastePart extends FilesUtil:
     )
   }
 
-  private def typeMatch(filePath: String): SupportedPasteAssetTypes = SupportedPasteAssetTypes.values.filter { supportedType =>
+  private def typeMatch(filePath: String): SupportedPasteAssetType = SupportedPasteAssetType.values.filter { supportedType =>
     lazy val nameWithExtension = nameAndExtensionPair(filePath)
 
     Seq(".", supportedType.toFileExtension).mkString("") == nameWithExtension(1)
   }.head
 
-  def apply(name: String, pasteAssetType: SupportedPasteAssetTypes): PastePart = {
+  def apply(name: String, pasteAssetType: SupportedPasteAssetType): PastePart = {
     new PastePart(
       name,
       pasteAssetType = pasteAssetType

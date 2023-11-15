@@ -1,7 +1,7 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 
-enum SupportedPasteAssetTypes:
+enum SupportedPasteAssetType:
   case NONE, JS, CSS, SCSS
 
   def toFileExtension: String = {
