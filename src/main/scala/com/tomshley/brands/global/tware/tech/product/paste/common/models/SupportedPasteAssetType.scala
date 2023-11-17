@@ -1,9 +1,13 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 
-enum SupportedPasteAssetType:
+enum SupportedPasteAssetType extends java.lang.Enum[SupportedPasteAssetType]:
   case NONE, JS, CSS, SCSS
 
   def toFileExtension: String = {
     toString.toLowerCase()
   }
+end SupportedPasteAssetType
+
+//  implicit val format: Format[SupportedPasteAssetType] = Json.formatEnum(this)
+

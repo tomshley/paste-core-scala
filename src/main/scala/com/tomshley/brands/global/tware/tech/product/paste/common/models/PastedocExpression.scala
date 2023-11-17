@@ -2,7 +2,7 @@ package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 import scala.util.matching.Regex
 
-enum PastedocExpression(regex: Regex) {
+enum PastedocExpression(regex: Regex) extends java.lang.Enum[PastedocExpression]:
   case JS_COMMENT extends PastedocExpression(
     "\\* @(module|requires)\\s".r
   )
@@ -20,4 +20,4 @@ enum PastedocExpression(regex: Regex) {
   )
 
   def toRegex: Regex = regex
-}
+end PastedocExpression

@@ -1,3 +1,5 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
-case class PasteModuleMatch(pasteModule: PasteModule, pastedocMatch: PastedocMatch) extends PasteSerializableModel
+import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteMarshallModel
+
+case class PasteModuleMatch(pasteModule: PasteModule, pastedocMatch: PastedocMatch) extends PasteMarshallModel[PasteModuleMatch]
