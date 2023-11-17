@@ -9,7 +9,7 @@ import scala.concurrent.{ExecutionContext, Future}
 import scala.languageFeature.postfixOps
 import scala.reflect.ClassTag
 
-trait PasteJsonMarshaller extends JsonMarshaller {
+trait PasteJsonMarshalling extends JsonMarshaller {
   override def serializeWithDefaults[T <: MarshallModel[T] : Manifest](model: T)(
     implicit formats: Formats = pasteFormat
   ): String = {
@@ -37,4 +37,4 @@ trait PasteJsonMarshaller extends JsonMarshaller {
     new serializers.JavaEnumNameSerializer[PastedocExpression]
 }
 
-object PasteJsonMarshaller extends PasteJsonMarshaller
+object PasteJsonMarshalling extends PasteJsonMarshalling
