@@ -7,7 +7,7 @@ case class FileGatherCommand(
                               resourcePaths: Seq[String],
                               supportedPasteAssetTypesOption: Option[Seq[SupportedPasteAssetType]],
                               buildDirNameOption: Option[String] = None
-                     ) extends IncomingModel {
+                            ) extends IncomingModel {
 
   lazy val supportedPasteAssetTypes: Seq[SupportedPasteAssetType] = {
     supportedPasteAssetTypesOption.fold(
@@ -17,7 +17,8 @@ case class FileGatherCommand(
     )
   }
 }
+
 object FileGatherCommand:
-  def apply(absPaths:String*) = new FileGatherCommand(
+  def apply(absPaths: String*) = new FileGatherCommand(
     absPaths, None, None
   )

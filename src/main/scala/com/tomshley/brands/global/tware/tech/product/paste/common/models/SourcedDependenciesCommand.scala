@@ -8,4 +8,4 @@ import scala.concurrent.Future
 case class SourcedDependenciesCommand(
                                        supportedPasteAssetTypes: Seq[SupportedPasteAssetType],
                                        byteStringFuture: Future[ByteString]
-                              ) extends IncomingModel
+                                     ) extends IncomingModel

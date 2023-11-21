@@ -4,8 +4,6 @@ import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.FilesUt
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
 import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteMarshallModel
 
-import java.nio.file.Path
-
 
 case class PastePart(
                       name: String,
@@ -26,7 +24,7 @@ object PastePart extends FilesUtil:
 
   def apply(sourceResourcePath: String): PastePart = {
     lazy val nameWithExtension = nameAndExtensionPair(sourceResourcePath)
-    lazy val name:String = nameWithExtension(0)
+    lazy val name: String = nameWithExtension(0)
     lazy val lastSlashIndex = name.lastIndexOf("/") + 1
     new PastePart(
       name.substring(lastSlashIndex, name.length),
