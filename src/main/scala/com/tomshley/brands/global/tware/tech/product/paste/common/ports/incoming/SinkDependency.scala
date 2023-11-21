@@ -6,9 +6,8 @@ import akka.stream.scaladsl.{Concat, Flow, Source, StreamConverters}
 import akka.util.ByteString
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{IncomingPort, PortAsyncExecution}
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
-import com.tomshley.brands.global.tware.tech.product.paste.common.models.{SinkDependencyCommand, SourcedDependenciesCommand, SupportedPasteAssetType}
+import com.tomshley.brands.global.tware.tech.product.paste.common.models.{SinkDependencyCommand, SourcedDependenciesCommand}
 
-import java.net.URL
 import scala.concurrent.ExecutionContext
 
 sealed trait SinkDependency extends IncomingPort[SinkDependencyCommand, SourcedDependenciesCommand] with PortAsyncExecution[SinkDependencyCommand, SourcedDependenciesCommand] {
