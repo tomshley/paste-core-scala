@@ -4,30 +4,17 @@ import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCo
 import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteMarshallModel
 
 import java.io.File
+import java.nio.file.{Path, Paths}
 
 case class PasteModule(
                         part: PastePart,
-                        sourceFile: File,
+                        sourceResourcePath: String,
                         requiresParts: Seq[PastePart],
-                        optimizedFileOption: Option[File] = None,
-                        parentBuildDirOption: Option[File] = None
-                      ) extends PasteMarshallModel[PasteModule] {
-
-  lazy val expectedOptimizedFile: File = {
-    optimizedFileOption.fold(
-      ifEmpty = parentBuildDirOption.fold(
-        ifEmpty = new File(
-          Seq(
-            sourceFile.getParent,
-            PasteCommonConfigKeys.BUILD_DIR_NAME.toValue
-          ).mkString("/")
-        )
-      )(buildDir => buildDir)
-    )(optimizedFile => optimizedFile)
-  }
-}
+                        optimizedPathOption: Option[String] = None,
+                        parentBuildDirOption: Option[String] = None
+                      ) extends PasteMarshallModel[PasteModule]
 
 object PasteModule:
   def apply(part: PastePart,
-            sourceFile: File,
-           ) = new PasteModule(part, sourceFile, Seq())
+            sourceResourcePath: String,
+           ) = new PasteModule(part, sourceResourcePath, Seq())

@@ -23,22 +23,19 @@ case class PastePart(
 }
 
 object PastePart extends FilesUtil:
-  def apply(sourcePath: Path): PastePart = {
-    apply(sourcePath, Seq())
-  }
 
-  def apply(sourcePath: Path, requires: Seq[PastePart]): PastePart = {
-    lazy val nameWithExtension = nameAndExtensionPair(sourcePath.getFileName.toString)
-
+  def apply(sourceResourcePath: String): PastePart = {
+    lazy val nameWithExtension = nameAndExtensionPair(sourceResourcePath)
+    lazy val name:String = nameWithExtension(0)
+    lazy val lastSlashIndex = name.lastIndexOf("/") + 1
     new PastePart(
-      nameWithExtension(0),
-      typeMatch(sourcePath.getFileName.toString)
+      name.substring(lastSlashIndex, name.length),
+      typeMatch(sourceResourcePath)
     )
   }
 
   private def typeMatch(filePath: String): SupportedPasteAssetType = SupportedPasteAssetType.values.filter { supportedType =>
     lazy val nameWithExtension = nameAndExtensionPair(filePath)
-
     Seq(".", supportedType.toFileExtension).mkString("") == nameWithExtension(1)
   }.head
 
