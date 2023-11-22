@@ -6,14 +6,14 @@ import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCo
 
 case class SinkDependencyCommand(
                                   pasteModules: Seq[PasteModule] = Seq(),
-                                  supportedContentTypes: Seq[SupportedPasteAssetType] = Seq()
+                                  supportedContentTypes: Seq[PasteAssetType] = Seq()
                                 ) extends IncomingModel {
 
-  lazy val contentLocations: Map[SupportedPasteAssetType, Seq[String]] = {
+  lazy val contentLocations: Map[PasteAssetType, Seq[String]] = {
     Map(
-      SupportedPasteAssetType.JS -> List("paste/scripts"), //PasteCommonConfigKeys.CONTENT_DIR_SCRIPTS.toValue),
-      //        (SupportedPasteAssetType.CSS -> PasteCommonConfigKeys.CONTENT_DIR_STYLES.toValue),
-      //        (SupportedPasteAssetType.IMG -> PasteCommonConfigKeys.CONTENT_DIR_IMG.toValue)
+      PasteAssetType.JS -> List("paste/scripts"), //PasteCommonConfigKeys.CONTENT_DIR_SCRIPTS.toValue),
+      //        (PasteAssetType.CSS -> PasteCommonConfigKeys.CONTENT_DIR_STYLES.toValue),
+      //        (PasteAssetType.IMG -> PasteCommonConfigKeys.CONTENT_DIR_IMG.toValue)
     ).filter(supportedContentType => supportedContentTypes.contains(supportedContentType._1))
   }
 }

@@ -6,6 +6,6 @@ import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.Incom
 import scala.concurrent.Future
 
 case class SourcedDependenciesCommand(
-                                       supportedPasteAssetTypes: Seq[SupportedPasteAssetType],
+                                       supportedPasteAssetTypes: Seq[PasteAssetType],
                                        byteStringFuture: Future[ByteString]
                                      ) extends IncomingModel

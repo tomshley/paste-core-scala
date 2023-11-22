@@ -1,17 +1,17 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{IncomingModel, Model}
-import com.tomshley.brands.global.tware.tech.product.paste.common.models.SupportedPasteAssetType
+import com.tomshley.brands.global.tware.tech.product.paste.common.models.PasteAssetType
 
 case class FileGatherCommand(
                               resourcePaths: Seq[String],
-                              supportedPasteAssetTypesOption: Option[Seq[SupportedPasteAssetType]],
+                              supportedPasteAssetTypesOption: Option[Seq[PasteAssetType]],
                               buildDirNameOption: Option[String] = None
                             ) extends IncomingModel {
 
-  lazy val supportedPasteAssetTypes: Seq[SupportedPasteAssetType] = {
+  lazy val supportedPasteAssetTypes: Seq[PasteAssetType] = {
     supportedPasteAssetTypesOption.fold(
-      ifEmpty = SupportedPasteAssetType.values.filter(_ != SupportedPasteAssetType.NONE).toSeq
+      ifEmpty = PasteAssetType.values.filter(_ != PasteAssetType.NONE).toSeq
     )(
       supportedTypes => supportedTypes
     )

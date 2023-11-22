@@ -2,7 +2,7 @@ package com.tomshley.brands.global.tware.tech.product.paste.common.marshalling
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.marshalling.models.MarshallModel
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.marshalling.{JsonMarshaller, models, serializers}
-import com.tomshley.brands.global.tware.tech.product.paste.common.models.{PastePartType, PastedocExpression, SupportedPasteAssetType}
+import com.tomshley.brands.global.tware.tech.product.paste.common.models.{PastePartType, PastedocExpression, PasteAssetType}
 import org.json4s.{DefaultFormats, Formats}
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -33,7 +33,7 @@ sealed trait PasteJsonMarshalling extends JsonMarshaller {
     new serializers.AbsPathFileSerializer +
     new serializers.AbsPathSerializer +
     new serializers.JavaEnumNameSerializer[PastePartType] +
-    new serializers.JavaEnumNameSerializer[SupportedPasteAssetType] +
+    new serializers.JavaEnumNameSerializer[PasteAssetType] +
     new serializers.JavaEnumNameSerializer[PastedocExpression]
 }
 

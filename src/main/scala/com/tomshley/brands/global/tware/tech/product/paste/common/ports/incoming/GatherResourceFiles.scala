@@ -2,7 +2,7 @@ package com.tomshley.brands.global.tware.tech.product.paste.common.ports.incomin
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.IncomingPort
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.FilesUtil
-import com.tomshley.brands.global.tware.tech.product.paste.common.models.{FileGatherCommand, ResourceFileDirectoriesCommand, SupportedPasteAssetType}
+import com.tomshley.brands.global.tware.tech.product.paste.common.models.{FileGatherCommand, ResourceFileDirectoriesCommand, PasteAssetType}
 
 import java.io.File
 
@@ -12,7 +12,7 @@ sealed trait GatherResourceFiles extends IncomingPort[ResourceFileDirectoriesCom
       ifEmpty = ""
     )(dirName => dirName)
 
-    lazy val regex = s".+\\.(${SupportedPasteAssetType.values.map(t => t.toFileExtension).distinct.mkString("|")})$$".r
+    lazy val regex = s".+\\.(${PasteAssetType.values.map(t => t.toFileExtension).distinct.mkString("|")})$$".r
 
     FileGatherCommand(
       (inboundModel.assetBuildDirectories.directoryMapping.flatten(_._2.toSeq).toSeq ++ Seq(fallbackDirName)).distinct.flatMap(resourceName => {

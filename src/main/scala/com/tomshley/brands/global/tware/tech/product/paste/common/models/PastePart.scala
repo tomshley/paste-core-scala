@@ -7,7 +7,7 @@ import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.Pa
 
 case class PastePart(
                       name: String,
-                      pasteAssetType: SupportedPasteAssetType,
+                      pasteAssetType: PasteAssetType,
                       versionOption: Option[String] = None
                     ) extends PasteMarshallModel[PastePart] {
 
@@ -32,12 +32,12 @@ object PastePart extends FilesUtil:
     )
   }
 
-  private def typeMatch(filePath: String): SupportedPasteAssetType = SupportedPasteAssetType.values.filter { supportedType =>
+  private def typeMatch(filePath: String): PasteAssetType = PasteAssetType.values.filter { supportedType =>
     lazy val nameWithExtension = nameAndExtensionPair(filePath)
     Seq(".", supportedType.toFileExtension).mkString("") == nameWithExtension(1)
   }.head
 
-  def apply(name: String, pasteAssetType: SupportedPasteAssetType): PastePart = {
+  def apply(name: String, pasteAssetType: PasteAssetType): PastePart = {
     new PastePart(
       name,
       pasteAssetType = pasteAssetType
