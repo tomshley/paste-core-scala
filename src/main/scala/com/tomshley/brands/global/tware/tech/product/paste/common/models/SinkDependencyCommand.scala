@@ -1,13 +1,13 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
-import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.IncomingModel
+import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.PortInboundModel
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
 
 
 case class SinkDependencyCommand(
                                   pasteModules: Seq[PasteModule] = Seq(),
                                   supportedContentTypes: Seq[PasteAssetType] = Seq()
-                                ) extends IncomingModel {
+                                ) extends PortInboundModel {
 
   lazy val contentLocations: Map[PasteAssetType, Seq[String]] = {
     Map(
