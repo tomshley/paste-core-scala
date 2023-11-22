@@ -4,7 +4,7 @@ import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{Inco
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
 
 case class ResourceFileDirectoriesCommand(
-                                           projectResourcesDirNames: Seq[String] = Seq(),
+                                           assetBuildDirectories: AssetBuildDirectories,
                                            projectResourcesDirNameFallbackOption: Option[String] = None,
                                            buildDirNameOption: Option[String] = None
                                          ) extends Model with IncomingModel {

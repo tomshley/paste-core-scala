@@ -15,7 +15,7 @@ sealed trait GatherResourceFiles extends IncomingPort[ResourceFileDirectoriesCom
     lazy val regex = s".+\\.(${SupportedPasteAssetType.values.map(t => t.toFileExtension).distinct.mkString("|")})$$".r
 
     FileGatherCommand(
-      (inboundModel.projectResourcesDirNames ++ Seq(fallbackDirName)).distinct.flatMap(resourceName => {
+      (inboundModel.assetBuildDirectories.directoryMapping.flatten(_._2.toSeq).toSeq ++ Seq(fallbackDirName)).distinct.flatMap(resourceName => {
         lazy val file = new File(getClass.getClassLoader.getResource(resourceName).toURI)
         recursiveFileList(_.getName matches regex.regex)(file.getAbsoluteFile).map(recursiveFile => {
           if (recursiveFile.exists()) {
