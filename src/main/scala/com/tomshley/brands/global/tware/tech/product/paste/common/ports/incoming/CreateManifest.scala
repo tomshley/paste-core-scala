@@ -11,9 +11,9 @@ import scala.concurrent.{ExecutionContext, Future}
 sealed trait CreateManifest extends Port[FileGatherCommand, Future[ManifestCreatedEvent]] with PortAsyncExecution[FileGatherCommand, Future[ManifestCreatedEvent]] {
   override def executeAsync(inboundModel: FileGatherCommand)(implicit ec: ExecutionContext): Future[ManifestCreatedEvent] = {
     ParseModuleRequires.executeAsync(inboundModel).map(pasteModuleSeq =>
-      PasteManifest(pasteModuleSeq)
+      PasteManifest(pasteModuleSeq.toArray)
     ).transformWith(t =>
-      PasteJsonMarshalling.serializeWithDefaultsAsync(t.getOrElse(PasteManifest(Seq())), ec)
+      PasteJsonMarshalling.serializeWithDefaultsAsync(t.getOrElse(PasteManifest(Array())), ec)
     ).flatMap(serializedString =>
       Future(
         ManifestCreatedEvent {
