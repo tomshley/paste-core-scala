@@ -2,7 +2,7 @@ package com.tomshley.brands.global.tware.tech.product.paste.common.ports.incomin
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.IncomingPort
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.FilesUtil
-import com.tomshley.brands.global.tware.tech.product.paste.common.models.{FileGatherCommand, ResourceFileDirectoriesCommand, PasteAssetType}
+import com.tomshley.brands.global.tware.tech.product.paste.common.models.{FileGatherCommand, PasteAssetType, ResourceFileDirectoriesCommand}
 
 import java.io.File
 

@@ -14,11 +14,10 @@ sealed trait SinkDependency extends IncomingPort[SinkDependencyCommand, SourcedD
   given system: ActorSystem = ActorSystem(PasteCommonConfigKeys.IO_ACTOR_SYSTEM.toString)
 
   override def executeAsync(inboundModel: SinkDependencyCommand)(implicit ec: ExecutionContext): SourcedDependenciesCommand = {
-
     SourcedDependenciesCommand(
       inboundModel.supportedContentTypes,
       Source.combine(
-        inboundModel.pasteModules.map { dependency =>
+        inboundModel.pasteManifest.pasteModules.map { dependency =>
           getClass.getClassLoader.getResource(dependency.optimizedPathOption.fold(
             ifEmpty = dependency.sourceResourcePath
           )(resourcePath => resourcePath))
@@ -30,7 +29,6 @@ sealed trait SinkDependency extends IncomingPort[SinkDependencyCommand, SourcedD
           )
         ))(Concat[ByteString]).runReduce(_ ++ _)
     )
-
   }
 }
 

@@ -16,9 +16,9 @@ import java.util.Base64
 import scala.concurrent.{ExecutionContext, Future}
 
 sealed trait LoadManifest extends Port[LoadManifestCommand, Future[PasteManifest]] with PortAsyncExecution[LoadManifestCommand, Future[PasteManifest]] {
-  given system: ActorSystem = ActorSystem(PasteCommonConfigKeys.IO_ACTOR_SYSTEM.toString)
-
   lazy val manifestSink = Sink.seq[PasteManifest]
+
+  given system: ActorSystem = ActorSystem(PasteCommonConfigKeys.IO_ACTOR_SYSTEM.toString)
 
   override def executeAsync(inboundModel: LoadManifestCommand)(implicit ec: ExecutionContext): Future[PasteManifest] = {
     inboundModel.assetBuildDirectories.directoryMapping.flatMap(

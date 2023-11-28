@@ -1,6 +1,6 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
-import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{PortInboundModel, Model}
+import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{Model, PortInboundModel}
 import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
 
 case class ResourceFileDirectoriesCommand(
