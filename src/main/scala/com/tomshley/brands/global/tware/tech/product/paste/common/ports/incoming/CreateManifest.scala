@@ -12,14 +12,13 @@ sealed trait CreateManifest extends Port[FileGatherCommand, Future[ManifestCreat
   override def executeAsync(inboundModel: FileGatherCommand)(implicit ec: ExecutionContext): Future[ManifestCreatedEvent] = {
     ParseModuleRequires.executeAsync(inboundModel).map(pasteModuleSeq =>
       PasteManifest(pasteModuleSeq.toArray)
-    ).transformWith(t =>
-      PasteJsonMarshalling.serializeWithDefaultsAsync(t.getOrElse(PasteManifest(Array())), ec)
-    ).flatMap(serializedString =>
-      Future(
-        ManifestCreatedEvent {
-          Base64.getEncoder.encode(serializedString.getBytes(StandardCharsets.UTF_8))
-        }
-      )
+    ).map(pasteManifest =>
+      PasteJsonMarshalling.serializeWithDefaultsAsync(pasteManifest, ec)
+    ).flatMap(serializedStringFuture =>
+      serializedStringFuture).map(serializedString =>
+      ManifestCreatedEvent {
+        Base64.getEncoder.encode(serializedString.getBytes(StandardCharsets.UTF_8))
+      }
     )
   }
 }
