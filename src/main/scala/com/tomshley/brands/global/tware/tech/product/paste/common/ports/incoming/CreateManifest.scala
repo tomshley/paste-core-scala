@@ -1,7 +1,7 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.ports.incoming
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{Port, PortAsyncExecution}
-import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteJsonMarshalling
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.marshalling.PasteJsonMarshalling
 import com.tomshley.brands.global.tware.tech.product.paste.common.models.{FileGatherCommand, ManifestCreatedEvent, PasteManifest}
 
 import java.nio.charset.StandardCharsets

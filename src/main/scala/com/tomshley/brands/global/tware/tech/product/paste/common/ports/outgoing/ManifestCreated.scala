@@ -6,7 +6,7 @@ import akka.stream.IOResult
 import akka.stream.scaladsl.{FileIO, Source}
 import akka.util.ByteString
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{Port, PortAsyncExecution}
-import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config.PasteCommonConfigKeys
 import com.tomshley.brands.global.tware.tech.product.paste.common.models.ManifestCreatedEvent
 
 import java.nio.file.Paths

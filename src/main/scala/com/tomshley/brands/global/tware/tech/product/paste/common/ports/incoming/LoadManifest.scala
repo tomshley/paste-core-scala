@@ -5,8 +5,8 @@ import akka.actor.ActorSystem
 import akka.stream.scaladsl.{Flow, Sink, StreamConverters}
 import akka.util.ByteString
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{Port, PortAsyncExecution}
-import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
-import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteJsonMarshalling
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config.PasteCommonConfigKeys
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.marshalling.PasteJsonMarshalling
 import com.tomshley.brands.global.tware.tech.product.paste.common.models.{LoadManifestCommand, PasteManifest}
 
 import java.net.URL
