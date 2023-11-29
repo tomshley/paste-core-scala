@@ -5,7 +5,7 @@ import akka.http.scaladsl.server.Directives.*
 import akka.stream.scaladsl.{Concat, Flow, Source, StreamConverters}
 import akka.util.ByteString
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.domain.{IncomingPort, PortAsyncExecution}
-import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config.PasteCommonConfigKeys
 import com.tomshley.brands.global.tware.tech.product.paste.common.models.{SinkDependencyCommand, SourcedDependenciesCommand}
 
 import scala.concurrent.ExecutionContext

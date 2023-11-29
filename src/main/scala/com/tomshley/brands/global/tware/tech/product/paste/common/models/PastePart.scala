@@ -1,8 +1,8 @@
 package com.tomshley.brands.global.tware.tech.product.paste.common.models
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.util.FilesUtil
-import com.tomshley.brands.global.tware.tech.product.paste.common.config.PasteCommonConfigKeys
-import com.tomshley.brands.global.tware.tech.product.paste.common.marshalling.PasteMarshallModel
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config.PasteCommonConfigKeys
+import com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.marshalling.PasteMarshallModel
 
 
 case class PastePart(

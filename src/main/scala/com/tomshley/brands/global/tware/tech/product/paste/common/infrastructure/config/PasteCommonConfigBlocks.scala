@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.config
+package com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config
 
 protected[paste] enum PasteCommonConfigBlocks(blockName: String) {
   case PASTE extends PasteCommonConfigBlocks("paste")

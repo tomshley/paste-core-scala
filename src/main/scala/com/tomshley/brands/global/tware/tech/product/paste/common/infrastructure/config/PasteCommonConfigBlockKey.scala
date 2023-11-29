@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.config
+package com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.config.ConfigEnvOrFile
 

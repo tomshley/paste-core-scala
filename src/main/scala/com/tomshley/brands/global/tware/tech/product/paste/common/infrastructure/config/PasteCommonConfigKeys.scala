@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.config
+package com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.config
 
 protected[paste] enum PasteCommonConfigKeys[T](configBlockKey: PasteCommonConfigBlockKey[T]) {
   case DEFAULT_VERSION extends PasteCommonConfigKeys[String](PasteCommonConfigBlockKey[String](PasteCommonConfigBlocks.PASTE, "defaultVersion", "1.0"))

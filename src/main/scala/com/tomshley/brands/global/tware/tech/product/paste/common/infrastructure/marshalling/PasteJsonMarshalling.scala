@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.marshalling
+package com.tomshley.brands.global.tware.tech.product.paste.common.infrastructure.marshalling
 
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.marshalling.models.MarshallModel
 import com.tomshley.brands.global.tech.tware.products.hexagonal.lib.marshalling.{JsonMarshaller, models, serializers}
