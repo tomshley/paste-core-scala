@@ -1,5 +1,5 @@
 
-package com.tomshley.brands.global.tware.tech.product.paste.common.ports.outgoing
+package com.tomshley.brands.global.tware.tech.product.paste.common.ports
 
 import akka.actor.ActorSystem
 import akka.stream.IOResult
@@ -12,7 +12,8 @@ import com.tomshley.brands.global.tware.tech.product.paste.common.models.Manifes
 import java.nio.file.Paths
 import scala.concurrent.{ExecutionContext, Future}
 
-sealed trait ManifestCreated extends Port[Future[ManifestCreatedEvent], Future[String]] with PortAsyncExecution[Future[ManifestCreatedEvent], Future[IOResult]] {
+object SaveSerializedManifest extends SaveSerializedManifest
+sealed trait SaveSerializedManifest extends Port[Future[ManifestCreatedEvent], Future[String]] with PortAsyncExecution[Future[ManifestCreatedEvent], Future[IOResult]] {
   given system: ActorSystem = ActorSystem(PasteCommonConfigKeys.IO_ACTOR_SYSTEM.toString)
 
   override def executeAsync(inboundModel: Future[ManifestCreatedEvent])(implicit ec: ExecutionContext): Future[IOResult] = {
@@ -39,4 +40,3 @@ sealed trait ManifestCreated extends Port[Future[ManifestCreatedEvent], Future[S
   }
 }
 
-object ManifestCreated extends ManifestCreated

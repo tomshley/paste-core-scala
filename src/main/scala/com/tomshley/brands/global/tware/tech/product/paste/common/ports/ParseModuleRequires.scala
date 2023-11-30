@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.ports.incoming
+package com.tomshley.brands.global.tware.tech.product.paste.common.ports
 
 import akka.actor.ActorSystem
 import akka.stream.scaladsl.{FileIO, Framing, Merge, Sink, Source}
