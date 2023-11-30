@@ -1,4 +1,4 @@
-package com.tomshley.brands.global.tware.tech.product.paste.common.ports.incoming
+package com.tomshley.brands.global.tware.tech.product.paste.common.ports
 
 import akka.Done
 import akka.actor.ActorSystem
